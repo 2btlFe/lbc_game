@@ -17,7 +17,7 @@
 ## 게임 설명
 |![start_screen](https://github.com/2btlFe/lbc_game/assets/61321286/3875637f-36bc-48c7-9be2-fb48a931b53b)|![ingame](https://github.com/2btlFe/lbc_game/assets/61321286/2a602540-9509-43a9-8bfb-1a1f1114ef78)|
 |:---:|:---:|
-|시작 화면|사용자 정보 화면|
+|시작 화면|인게임 화면|
 
 긴장감, 압박감과 같이 일상에서 느낄 수 있는 부정적인 감정에서 벗어나 추억을 되살릴 수 있는 게임을 만들고자 액티브 발리볼(Active VolleyBall)를 개발하게 되었습니다.<br>
 - 추억을 찾아라 ⚔️<br>
