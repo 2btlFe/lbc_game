@@ -10,16 +10,16 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
 # 화면 크기 설정
-WIDTH = 1000
-HEIGHT = 600
+WIDTH = 1100
+HEIGHT = 750
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pikachu Volleyball")
 
 # 플레이어 설정
-player_size = 50
+player_size = 60
 player1_pos = [WIDTH - player_size - 50, HEIGHT - player_size - 10]  # 오른쪽에 위치
 player2_pos = [50, HEIGHT - player_size - 10]  # 왼쪽에 위치
-player_speed = 7
+player_speed = 10
 jump_strength = 23  # 점프 최대치를 2배로 증가
 fall_speed1 = 0
 fall_speed2 = 0
@@ -29,14 +29,14 @@ is_jumping2 = False
 # 공 설정
 ball_size = 20
 ball_pos = [WIDTH // 2, HEIGHT // 2]
-ball_speed = [10, -5]
+ball_speed = [15, -15]
 
 # 네트 설정
 net_width = 10
 net_height = 200
 net_pos = [WIDTH // 2 - net_width // 2, HEIGHT - net_height]
 
-# 충돌 감지 함수
+# 충돌 감지 및 처리 함수
 def detect_collision(player_pos, ball_pos):
     p_x, p_y = player_pos
     b_x, b_y = ball_pos
@@ -49,6 +49,36 @@ def detect_collision(player_pos, ball_pos):
         return True
     else:
         return False
+
+def floor_to_int(number):
+    # Convert number to its binary representation
+    binary_str = bin(math.floor(number))
+
+    # Remove the '0b' prefix and convert binary string to integer
+    integer_part = int(binary_str[2:], 2)
+
+    return integer_part
+
+def adjust_ball_direction(player_pos, ball_speed):
+    # 충돌 감지 및 처리
+    if detect_collision(player_pos, ball_pos):
+        p_x, p_y = player_pos
+        b_x, b_y = ball_pos
+        
+        if b_x < p_x:
+            ball_speed[0] = -floor_to_int(abs(b_x - p_x) / 3)
+        elif b_x > p_x:
+            ball_speed[0] = floor_to_int(abs(b_x - p_x) / 3) 
+
+        if ball_speed[0] == 0:
+            ball_speed[0] = (random.randn() % 3) - 1
+
+        ball_abs_speed = abs(ball_speed[1])
+        ball_speed[1] = -ball_abs_speed
+
+        if ball_abs_speed < 15:
+            ball_speed[1] = -15
+        
 
 # 게임 루프
 running = True
@@ -95,13 +125,13 @@ while running:
             player2_pos[1] = HEIGHT - player_size - 10
             is_jumping2 = False
 
-    # 충돌 감지 및 처리
-    if detect_collision(player1_pos, ball_pos) or detect_collision(player2_pos, ball_pos):
-        ball_speed[0] *= -1  # 공의 x 속도를 반전시킴
-
     # 공 이동
     ball_pos[0] += ball_speed[0]
     ball_pos[1] += ball_speed[1]
+
+    # 충돌 감지 및 처리
+    adjust_ball_direction(player1_pos, ball_speed)
+    adjust_ball_direction(player2_pos, ball_speed)
 
     # 공 벽 충돌
     if ball_pos[0] <= 0 or ball_pos[0] >= WIDTH - ball_size:
