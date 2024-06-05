@@ -29,6 +29,22 @@
 - 초보자도 누구나! 👶<br>
 쉬운 키보드 조작을 통해 초보자도 누구나 쉽게 적응할 수 있습니다.
 
+
+## 게임 시작 방법
+
+https://hub.docker.com/repository/docker/2btlfe/lbc_volley/general에 도커 이미지가 있습니다.
+
+```
+docker pull 2btlfe/lbc_volley:tagname
+```
+
+```
+python main.py 
+```
+
+
+
+
 ## 게임 플레이 방식
 
 - 목표 점수를 입력하고 게임을 시작하세요
@@ -37,12 +53,14 @@
 |---|---|---|---|---|
 
 - player 1
-|방향키|⬆️|⬅️|⬇️|➡️| Enter | Shift | 
+|방향키|⬆️|⬅️|⬇️|➡️| Enter | - Enter를 누른 채로 공과 충돌하면 공의 속도가 빨라진다
 
 - player 2
-|키보드| W | A | S | D | B | N |
+|키보드| W | A | S | D | B | -  B를 누른 채로 공과 충돌하면 공의 속도가 빨라진다
 
 ## 플레이 영상
+
+https://github.com/2btlFe/lbc_game/assets/61321286/136bb370-d933-4a8c-9ad4-c30cd35652f0
 
 
 
