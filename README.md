@@ -15,7 +15,7 @@
 - 멤버: 이병철
 
 ## 게임 설명
-|![image](https://user-images.githubusercontent.com/66003567/216818254-18683c3f-af80-4009-b2cc-35bdee865f23.png)|![image](https://user-images.githubusercontent.com/66003567/216818272-8749569b-b217-4572-9738-32b0058459f4.png)|
+|![start_screen](https://github.com/2btlFe/lbc_game/assets/61321286/3875637f-36bc-48c7-9be2-fb48a931b53b)|![ingame](https://github.com/2btlFe/lbc_game/assets/61321286/2a602540-9509-43a9-8bfb-1a1f1114ef78)|
 |:---:|:---:|
 |시작 화면|사용자 정보 화면|
 
